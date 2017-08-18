@@ -70,9 +70,9 @@ def webhook():
 def makeYqlQuery(randSource): 
     randPos = randint(1,3)
     if randSource == 0:
-        query = "select * from htmlstring where url=\"http://eva.vn/bep-eva-c162.html\" and xpath =\"//*[@id="centerContent"]/div[1]/div[1]/div[4]/div[1]/a\""
-    elif randSource == 1:
-        query = "select * from htmlstring where url=\"http://7monngonmoingay.net\" and xpath = \"//*[@id="content_box"]/article["+str(randPos)+"]/a\""    
+        query = "select * from htmlstring where url=\"http://eva.vn/bep-eva-c162.html\" and xpath =\"//*[@id='centerContent']/div[1]/div[1]/div[4]/div[1]/a\""
+    else randSource == 1:
+        query = "select * from htmlstring where url=\"http://7monngonmoingay.net\" and xpath = \"//*[@id='content_box']/article["+str(randPos)+"]/a\""    
     return query
 
 
@@ -142,3 +142,4 @@ if __name__ == '__main__':
     print("Starting app on port %d" % port)
 
 app.run(debug=False, port=port, host='0.0.0.0')
+
