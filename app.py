@@ -21,32 +21,9 @@ from flask import make_response
 # Flask app should start in global layout
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])#!/usr/bin/env python
-# -*- coding: utf-8 -*- 
-
-from __future__ import print_function
-from future.standard_library import install_aliases
-install_aliases()
-
-from urllib.parse import urlparse, urlencode
-from urllib.request import urlopen, Request
-from urllib.error import HTTPError
-
-import json
-import os
-from random import randint
-
-
-from flask import Flask
-from flask import request
-from flask import make_response
-
-# Flask app should start in global layout
-app = Flask(__name__)
-
 @app.route('/', methods=['GET'])
 def hello():
-    return 'Hello world from food for bot'
+    return 'Hello world from foot for bot'
     
 @app.route('/webhook', methods=['POST', 'GET'])
 def webhook():
@@ -68,11 +45,12 @@ def webhook():
 
 
 def makeYqlQuery(randSource): 
-    randPos = randint(1,3)
+    randPos = randint(1,6)
     if randSource == 0:
         query = "select * from htmlstring where url=\"http://eva.vn/bep-eva-c162.html\" and xpath =\"//*[@id='centerContent']/div[1]/div[1]/div[4]/div[1]/a\""
-    else randSource == 1:
+    else:
         query = "select * from htmlstring where url=\"http://7monngonmoingay.net\" and xpath = \"//*[@id='content_box']/article["+str(randPos)+"]/a\""    
+    
     return query
 
 
@@ -99,9 +77,22 @@ def makeWebhookResult(randSource, data):
     
     if randSource == 0:
         url = "http://eva.vn" + a.get('href')
-    else randSource == 1:
+    elif randSource == 1:
         url = a.get('href')
-    
+    elif randSource == 2:
+        url = "http://www.phunutoday.vn"+ a.get('href')
+    elif randSource == 3:
+        url = a.get('href')
+    elif randSource == 4:
+        url = a.get('href')
+    elif randSource == 5:
+        url = "http://afamily.vn"+ a.get('href')
+    elif randSource == 6:
+        url = a.get('href')
+    elif randSource == 7:
+        url = a.get('href')
+    else:
+        url = "http://kenh14.vn" + a.get('href')
         
     facebook_message = {
         "attachment": {
@@ -142,4 +133,3 @@ if __name__ == '__main__':
     print("Starting app on port %d" % port)
 
 app.run(debug=False, port=port, host='0.0.0.0')
-
