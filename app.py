@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello():
-    return 'Hello world from foot for bot'
+    return 'Hello world1'
     
 @app.route('/webhook', methods=['POST', 'GET'])
 def webhook():
@@ -45,12 +45,27 @@ def webhook():
 
 
 def makeYqlQuery(randSource): 
-    randPos = randint(1,6)
+    randPos = randint(1,1)
     if randSource == 0:
-        query = "select * from htmlstring where url=\"http://eva.vn/bep-eva-c162.html\" and xpath =\"//div/div[1]/div[1]/div[4]/div[1]/a\""
+		query = "select * from htmlstring where url=\"http://eva.vn/bep-eva-c162.html\" and xpath =\"//div/div[1]/div[1]/div[4]/div[1]/a\""
+    elif randSource == 1:
+        query = "select * from html where url=\"http://7monngonmoingay.net\" and xpath = \"/html/body/div[1]/div[2]/div[" + str(randPos) +"]/div[1]/a\""
+    elif randSource == 2:
+        query = "select * from html where url=\"http://www.phunutoday.vn/lam-me/\" and xpath =\"/html/body/main/div/div[1]/div[1]/div/section/div[1]/article[" + str(randPos) +"]/a\""
+    elif randSource == 3:
+        query = "select * from html where url=\"https://naungonmoingay.com/mon-ngon/\" and xpath =\"/html/body/div[3]/div[1]/div[3]/article[" + str(randPos) +"]/div[1]/a\""
+    elif randSource == 4:
+        query = "select * from html where url=\"http://us.24h.com.vn/mon-ngon-moi-ngay-c460e2552.html\" and xpath = \"/html/body/div[2]/div[3]/table/tbody/tr[1]/td[2]/div/div[2]/div[" + str(randPos + 1) +"]/span[1]/a\""
+    elif randSource == 5:
+        query = "select * from html where url=\"http://afamily.vn/an-ngon.chn\" and xpath = \"/html/body/form/div[2]/div[4]/div[2]/div[2]/div/div[2]/div/div[" + str(randPos) +"]/a\""
+    elif randSource == 6:
+        query = "select * from html where url=\"http://sotaynauan.com/chuyen-muc/mon-ngon-moi-ngay/\" and xpath = \"/html/body/div[2]/section/section/article[" + str(randPos) +"]/a\""
+    elif randSource == 7:
+        query = "select * from html where url=\"http://www.bepgiadinh.com/mon-ngon/\" and xpath = \"/html/body/div[1]/div/div/div[2]/div[1]/article/ul[" +  str(randint(3,8)) +"]/li[" +  str(randint(1,3)) +"]/a\""
+    elif randSource == 8:
+        query = "select * from html where url=\"http://feedy.vn/\" and xpath =\"/html/body/div[3]/div/div[2]/div[" +  str(randint(1,8)) +"]/div[1]/a\""
     else:
-        query = "select * from htmlstring where url=\"http://7monngonmoingay.net\" and xpath = \"//*[@id='content_box']/article["+str(randPos)+"]/a\""    
-    
+        query = "select * from html where url=\"http://kenh14.vn/made-by-me/kitchen.chn\" and xpath = \"/html/body/form/div[2]/div[2]/div[3]/div[2]/div/div/div[2]/div/div[3]/ul/li[" + str(randPos) +"]/div[1]/a\""
     return query
 
 
