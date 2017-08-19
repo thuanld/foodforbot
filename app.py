@@ -76,37 +76,7 @@ def makeWebhookResult(randSource, data):
         "displayText": "Try again",
         "source": data
     }
-    if query is None:
-        return try_again
     
-    result = query.get('results')
-    if result is None:
-        return try_again
-
-    a = result.get('a')
-    if a is None:
-        return try_again
-    speech = a.get('title')
-    
-    
-    if randSource == 0:
-        url = "http://eva.vn" + a.get('href')
-    elif randSource == 1:
-        url = a.get('href')
-    elif randSource == 2:
-        url = "http://www.phunutoday.vn"+ a.get('href')
-    elif randSource == 3:
-        url = a.get('href')
-    elif randSource == 4:
-        url = a.get('href')
-    elif randSource == 5:
-        url = "http://afamily.vn"+ a.get('href')
-    elif randSource == 6:
-        url = a.get('href')
-    elif randSource == 7:
-        url = a.get('href')
-    else:
-        url = "http://kenh14.vn" + a.get('href')
         
     facebook_message = {
         "attachment": {
@@ -115,13 +85,13 @@ def makeWebhookResult(randSource, data):
                 "template_type": "generic",
                 "elements": [
                     {
-                        "title": a.get('title'),
-                        "image_url": a.get('img').get('src'),
-                        "subtitle": speech,
+                        "title": "Du lieu lay tu webhook",
+                        "image_url": "duong_dan_anh",
+                        "subtitle": "hooking...",
                         "buttons": [
                             {
                                 "type": "web_url",
-                                "url": url,
+                                "url": "http",
                                 "title": "Xem"
                             }
                         ]
@@ -132,8 +102,8 @@ def makeWebhookResult(randSource, data):
 }
     
     return {
-        "speech": speech,
-        "displayText": speech,
+        "speech": "Du lieu lay tu webhook",
+        "displayText": "Du lieu lay tu webhook",
         # "data": data,
         # "contextOut": [],
         "data": {"facebook": facebook_message},
