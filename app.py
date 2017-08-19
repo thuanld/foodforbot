@@ -74,9 +74,8 @@ def makeWebhookResult(randSource, data):
     try_again = {
         "speech": "Try again",
         "displayText": "Try again",
-        "source": "food-suggest"
+        "source": data
     }
-
     if query is None:
         return try_again
     
