@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello():
-    return 'Hello world1'
+    return 'Hello world from bot'
     
 @app.route('/webhook', methods=['POST', 'GET'])
 def webhook():
@@ -47,7 +47,7 @@ def webhook():
 def makeYqlQuery(randSource): 
     randPos = randint(1,1)
     if randSource == 0:
-		query = "select * from htmlstring where url=\"http://eva.vn/bep-eva-c162.html\" and xpath =\"//div/div[1]/div[1]/div[4]/div[1]/a\""
+        query = "select * from htmlstring where url=\"http://eva.vn/bep-eva-c162.html\" and xpath =\"//div/div[1]/div[1]/div[4]/div[1]/a\""
     elif randSource == 1:
         query = "select * from html where url=\"http://7monngonmoingay.net\" and xpath = \"/html/body/div[1]/div[2]/div[" + str(randPos) +"]/div[1]/a\""
     elif randSource == 2:
