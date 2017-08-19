@@ -32,7 +32,7 @@ def webhook():
     yql_query = makeYqlQuery(randSource)
     if yql_query is None:
         return {}
-    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json"
+    yql_url = baseurl + urlencode({'q': yql_query}) + "&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys"
     result = urlopen(yql_url).read()
     data = json.loads(result)
     res = makeWebhookResult(randSource, data)
